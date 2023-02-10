@@ -35,9 +35,9 @@ func main() {
 		json.NewEncoder(w).Encode("Reached")
 	}).Methods("GET")
 
-	port := ":" + os.Getenv("PORT")
+	port := os.Getenv("PORT")
 	if port == "" {
-		port = ":8080"
+		port = "8080"
 	}
-	http.ListenAndServe(":8080", r)
+	http.ListenAndServe(":"+port, r)
 }
